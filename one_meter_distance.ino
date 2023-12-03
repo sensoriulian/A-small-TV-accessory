@@ -5,7 +5,7 @@ const int releuPin = 8;  // Pin relay
 
  // defines variables
 long duration;
-int distance;
+int distance; 
 
 void setup() {
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
