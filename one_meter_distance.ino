@@ -32,7 +32,7 @@ void loop() {
   Serial.println(distance);
 
   // Check if someone is within 1 meter (100 cm)
-  Serial.println("Setat la 1 metru");
+  //Serial.println("set to one meter");
   if (distance <= 100) {
     // Activate the relay
     digitalWrite(releuPin, LOW);
