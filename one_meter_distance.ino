@@ -1,9 +1,9 @@
-// defines pins numbers
+ // defines pins numbers
 const int trigPin = 9;   // Pin Trig Sensor
 const int echoPin = 10;  // Pin Echo Sensor
 const int releuPin = 8;  // Pin relay
 
-// defines variables
+ // defines variables
 long duration;
 int distance;
 
@@ -16,32 +16,32 @@ void setup() {
 }
 
 void loop() {
-  // Clears the trigPin
+ // Clears the trigPin
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 microseconds
+ // Sets the trigPin on HIGH state for 10 microseconds
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-  // Reads the echoPin, returns the sound wave travel time in microseconds
+ // Reads the echoPin, returns the sound wave travel time in microseconds
   duration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
+ // Calculating the distance
   distance = duration * 0.034 / 2;
-  // Prints the distance on the Serial Monitor
+ // Prints the distance on the Serial Monitor
   Serial.print("Distance: ");
   Serial.println(distance);
 
   // Check if someone is within 1 meter (100 cm)
-  //Serial.println("set to one meter");
   if (distance <= 100) {
-    // Activate the relay
+  // Activate the relay
     digitalWrite(releuPin, LOW);
     Serial.println("Relay activated!");
     Serial.println(distance);
-    delay(10000);
-    // Deactivate the relay
+  // Change time after relay activation defaulth 10 seconds
+	delay(10000);  // Change time after relay activation defaulth 10 seconds
+  // Deactivate the relay
     digitalWrite(releuPin, HIGH);
-     Serial.println("Relay deactivated ...");
+    Serial.println("Relay deactivated ...");
   }
   // Wait to avoid repeated distance readings
   delay(500);
